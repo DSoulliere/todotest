@@ -16,13 +16,13 @@ class Task extends Model
     ];
 
     /**
-     * Get The task list the task belongs to
+     * Get The user the tasks belong to
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function taskList()
+    public function user()
     {
-        return $this->belongsTo(TaskList::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

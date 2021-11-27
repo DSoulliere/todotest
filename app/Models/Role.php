@@ -13,7 +13,7 @@ class Role extends Model
     /**
      * The user's security role
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function role()
     {

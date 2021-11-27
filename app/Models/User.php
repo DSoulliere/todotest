@@ -57,10 +57,10 @@ class User extends Authenticatable
     /**
      * The user's task lists
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function taskLists()
+    public function tasks()
     {
-        return $this->hasMany(TaskList::class);
+        return $this->hasMany(Task::class);
     }
 }

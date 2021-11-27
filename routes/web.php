@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [ DashboardController::class, 'index' ])->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::resource('/tasks', TaskListController::class)->except('index', 'show');
+    Route::get('/users/{user}/tasks', [ TaskListController::class, 'index'])->name('user-tasks');
 });
-
-
 
 require __DIR__.'/auth.php';

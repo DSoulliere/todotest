@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->softDeletes();
             $table->foreignId('user_id')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
-            $table->boolean('is_complete');
+            $table->boolean('is_complete')->default(0);
             $table->timestamps();
         });
     }
